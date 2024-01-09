@@ -1,0 +1,35 @@
+= Common Verilator Support Library
+
+== Description
+
+This is the common Verilator utility library used by NAIL Verilator testbenches. It
+includes a common Verilator wrapper class to interact with verilated models in a
+consistent way, and some interface utilities for the various chip-serial and video
+interfaces for visualization and user interaction from the simulation system.
+
+== Usage
+
+This is a CMake project that can be used via `FetchContent`. It exposes a single library
+target to link against: `verilator_util`.
+
+== Licensing
+
+This library is dual licensed under the MIT and OHL-S-V2 licenses for compatibility with
+the parent project, which uses the stricter OHL-S-V2 license. You may choose which of the
+two licenses you are bound by when using this project without the parent project
+sources (i.e. The NAIL HDL IP libraries). Please note that distributing these sources
+along with any OHL-S sources binds the aggregate distribution under the OHL-S license
+terms.
+
+The aforementioned licenses shall apply to all _C and C++ source code, build
+configuration, and documentation_ that are part of this software utilities library. In
+particular, this includes all such materials under the `tb/common/` subfolder. You may not
+assume that any other files in this repository are under the "BSD Two Clause License" (in
+particular, all synthesizable HDL source is provided under a _different license_, see the
+root README file for details).
+
+Please refer to the following files to obtain your copy of the licenses:
+
+* `LICENSE-BSD.txt` - The BSD two-clause license option
+* `${REPO_ROOT}/LICENSE.txt` - The CERN Open Hardware License Strongly-Reciprocal Version 2
+  license option

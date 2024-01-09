@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: BSD-3-Clause OR CERN-OHL-S-2.0
+
+### CMake ###
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+
+# user dirs
+.cache/
+build/
+vendor/
+
+# object and dependency files
+*.d.mk
+*.o
+*.tmp
