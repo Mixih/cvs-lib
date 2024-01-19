@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText:  (C) 2024 Max Hahn
 # SPDX-License-Identifier: BSD-3-Clause OR CERN-OHL-S-2.0
+include_guard(GLOBAL)
 
 function(configure_target_with_defaults target)
     target_include_directories("${target}" PUBLIC ${PROJ_INCLUDE_DIR})

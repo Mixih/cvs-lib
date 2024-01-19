@@ -1,5 +1,6 @@
 # SPDX-FileCopyrightText:  (C) 2024 Max Hahn
 # SPDX-License-Identifier: BSD-3-Clause OR CERN-OHL-S-2.0
+include_guard(GLOBAL)
 
 function(prevent_in_tree_builds)
     get_filename_component(srcdir "${CMAKE_SOURCE_DIR}" REALPATH)
