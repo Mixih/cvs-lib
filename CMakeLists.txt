@@ -7,27 +7,42 @@
 #   - https://coderefinery.github.io/cmake-workshop/
 cmake_minimum_required(VERSION 3.11...3.27 FATAL_ERROR)
 # bootstrap project
-project(verilator_common_project VERSION 0.0.1 LANGUAGES C CXX)
+project(vsc_project VERSION 0.0.1 LANGUAGES C CXX)
+
+# Library Options
+# Set to OFF in consumer if it will manage its own vendor deps. The includes glm, glfw,
+# and glad
+option(VSC_USE_VENDORED_DEPS "Download glx, glm, and glad" ON)
+option(VSC_BUILD_EXAMPLES "Build example code" ON)
 
 # add our custom modules to the module path
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 # include required scripts
+include(FormatCode)
 include(PreventInTreeBuilds)
 include(Util)
 
-# cmake global settings (USE WITH GREAT CARE!)
+# CMake global settings (USE WITH GREAT CARE!)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-# project settings
+# internal project settings (so we don't modify any CMake global settings.)
 set(warn_flags -Wall -Wextra -pedantic)
-set(PROJ_CXX_VERISON cxx_std_20)
+set(PROJ_CXX_VERSION cxx_std_20)
 set(PROJ_C_VERSION c_std_17)
 set(PROJ_FLAGS "${warn_flags}")
 # configure global paths for project
 get_filename_component(proj_include_abs_path include ABSOLUTE BASE_DIR ${PROJECT_SOURCE_DIR})
 set(PROJ_INCLUDE_DIR "${proj_include_abs_path}")
 
-# add source and vendor directories
-add_subdirectory(vendor)
+# Only resolve vendored libs if configured to
+if (VSC_USE_VENDORED_DEPS)
+    add_subdirectory(vendor)
+endif()
 add_subdirectory(src)
+if (VSC_BUILD_EXAMPLES)
+    add_subdirectory(example)
+endif()
+
+# add format target
+register_format_code_target("format" "example;include;src")

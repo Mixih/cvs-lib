@@ -1,8 +1,8 @@
-= Common Verilator Support Library
+= Common Verilator Support Constructs Library
 
 == Description
 
-This is the common Verilator utility library used by NAIL Verilator testbenches. It
+This is the common Verilator utility library used by various Verilator testbenches. It
 includes a common Verilator wrapper class to interact with verilated models in a
 consistent way, and some interface utilities for the various chip-serial and video
 interfaces for visualization and user interaction from the simulation system.
@@ -10,26 +10,32 @@ interfaces for visualization and user interaction from the simulation system.
 == Usage
 
 This is a CMake project that can be used via `FetchContent`. It exposes a single library
-target to link against: `verilator_util`.
+target to link against: `VSC::lib`.
+
+Note: we will investigate possibly add a proper dependency management system such as
+`vcpkg` to allow easier integration into complex downstream projects.
+
+== Acknowledgements
+
+The following 3rd-party software libraries form an integral part of this library:
+
+- GLFW: Cross-platform 3d GFX window tollkit.
+- GLAD: Cross-platform 3d API extension loader.
+- GLM: 3d graphics targeted fast linear algebra library.
+
+We would like to thank their authors for releasing them under permissive open-source
+licenses.
 
 == Licensing
 
-This library is dual licensed under the MIT and OHL-S-V2 licenses for compatibility with
-the parent project, which uses the stricter OHL-S-V2 license. You may choose which of the
-two licenses you are bound by when using this project without the parent project
-sources (i.e. The NAIL HDL IP libraries). Please note that distributing these sources
-along with any OHL-S sources binds the aggregate distribution under the OHL-S license
-terms.
-
-The aforementioned licenses shall apply to all _C and C++ source code, build
-configuration, and documentation_ that are part of this software utilities library. In
-particular, this includes all such materials under the `tb/common/` subfolder. You may not
-assume that any other files in this repository are under the "BSD Two Clause License" (in
-particular, all synthesizable HDL source is provided under a _different license_, see the
-root README file for details).
+This library is dual licensed under the BSD 3-clause and OHL-S-V2 licenses for
+compatibility with projects which use the stricter OHL-S-V2 license. You may freely choose
+which of the two licenses you are bound by when using this project. Please note that
+distributing these sources along with any CERN-OHL-S sources binds the aggregate distribution
+under the CERN-OHL-S license terms.
 
 Please refer to the following files to obtain your copy of the licenses:
 
-* `LICENSE-BSD.txt` - The BSD two-clause license option
-* `${REPO_ROOT}/LICENSE.txt` - The CERN Open Hardware License Strongly-Reciprocal Version 2
-  license option
+* `${REPO_ROOT}/LICENSE-BSD-3-CLAUSE` - The BSD three-clause license option.
+* `${REPO_ROOT}/LICENSE_CERN-OHL-S-2.0` - The CERN Open Hardware License Strongly-Reciprocal
+  Version 2 license option.
