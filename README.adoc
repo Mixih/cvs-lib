@@ -2,8 +2,8 @@
 
 == Description
 
-This is the common Verilator utility library used by various Verilator testbenches. It
-includes a common Verilator wrapper class to interact with verilated models in a
+This is the common Verilator utility library used by various Verilator testbenches written
+by us. It includes a common Verilator wrapper class to interact with verilated models in a
 consistent way, and some interface utilities for the various chip-serial and video
 interfaces for visualization and user interaction from the simulation system.
 

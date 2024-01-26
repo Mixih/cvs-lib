@@ -5,7 +5,7 @@
 # Refer to the following resources for modern cmake scripts:
 #   - https://cliutils.gitlab.io/modern-cmake/
 #   - https://coderefinery.github.io/cmake-workshop/
-cmake_minimum_required(VERSION 3.11...3.27 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.23...3.27 FATAL_ERROR)
 # bootstrap project
 project(vsc_project VERSION 0.0.1 LANGUAGES C CXX)
 

@@ -1,0 +1,36 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "debug",
+      "description": "Debug build configuration",
+      "generator": "Unix Makefiles",
+      "binaryDir": "build/",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "debug"
+      },
+      "environment": {
+        "CC": "clang",
+        "CXX": "clang++"
+      }
+    },
+    {
+      "name": "release",
+      "description": "Debug build configuration",
+      "generator": "Unix Makefiles",
+      "binaryDir": "build/",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "release"
+      },
+      "environment": {
+        "CC": "clang",
+        "CXX": "clang++"
+      }
+    }
+  ]
+}
