@@ -12,10 +12,14 @@
  */
 
 #ifndef VSC_MACROS_SET__
-/**
- * Macro to mark function parameter as unused to squash warnings.
- * WARNING: this is an unstable API intended for internal use, and may break naming at any
- * time.
- */
-#define VSC_UNUSED__(var) ((void)(var))
+#define ENSURE(expr)                                                                     \
+    do {                                                                                 \
+        if (!(expr)) {                                                                   \
+            std::stringstream ss;                                                        \
+            ss << "ENSURE condition '" << #expr << "' failed at " << __FILE__ << ":"     \
+               << __LINE__;                                                              \
+            DEBUG_PRINT(ss.str());                                                       \
+            throw Debug::AssertionError(ss.str());                                       \
+        }                                                                                \
+    } while (0)
 #endif // VSC_MACROS_SET__

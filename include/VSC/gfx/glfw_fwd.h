@@ -1,3 +1,4 @@
+// clang-format off
 /** @file
  * Note: This file contains API definitions copied from the GLFW project, and is subject
  * to their license and copyright. The license has been enclosed below:
@@ -28,12 +29,12 @@
  * SPDX-FileCopyrightText:  Copyright (c) 2002-2006 Marcus Geelnard, 2006-2019 Camilla Löwy
  * SPDX-License-Identifier: Zlib
  */
+// clang-format on
 #ifndef VSC_GLFW_FWD_H_
 #define VSC_GLFW_FWD_H_
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif // __cplusplus
 
 typedef struct GLFWwindow GLFWwindow;

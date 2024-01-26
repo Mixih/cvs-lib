@@ -22,6 +22,17 @@ concept ResourceCreator = requires(CreatorFun f, Args&&... args) {
 };
 
 /**
+ * Constraint for functions that destroy resources
+ */
+template <typename DestroyerFun, typename T>
+concept ResourceDestroyer = requires(DestroyerFun f, T instance) {
+    !std::is_pointer_v<T>&&
+        std::is_convertible_v<DestroyerFun, std::function<void(T & instance)>>;
+    std::is_pointer_v<T>&&
+        std::is_convertible_v<DestroyerFun, std::function<void(T * instance)>>;
+};
+
+/**
  * Clock edge handler callable constraint
  *
  * A valid function must have the signature void handler(VerilatedModel &m)

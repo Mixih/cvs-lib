@@ -7,7 +7,6 @@
 #ifndef VSC_VERILATOR_BENCH_H_
 #define VSC_VERILATOR_BENCH_H_
 
-#include "VSC/internal/SetMacros.h"
 #include "VSC/util/Concept.h"
 
 namespace vsc {
@@ -35,7 +34,7 @@ public:
     /**
      * Used to as an alias to the no-op function for various edge handler callbacks
      */
-    static auto noOpHandler = [](TopModule* model) { VSC_UNUSED__(model); };
+    static auto noOpHandler = [](TopModule*) {};
     /**
      * Direct access to the verilator topmodule
      */
@@ -115,7 +114,5 @@ void VerilatorBench<TopModule>::advanceCycle(RiseEdgeHandler handleClkRising,
 }
 
 } // namespace vsc
-
-#include "VSC/internal/CvsUnsetMacros.h" // keep internal macros private
 
 #endif /* VERILATOR_BENCH_H_ */

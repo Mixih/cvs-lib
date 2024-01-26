@@ -8,5 +8,5 @@
  */
 
 #ifdef VSC_MACROS_SET__
-#undef VSC_UNUSED__
+#undef ENSURE
 #endif // VSC_MACROS_SET__
